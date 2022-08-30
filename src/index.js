@@ -1,7 +1,6 @@
 const pythonBridge = require('python-bridge'); 
 const fs = require("fs");
 const path = require('path');
-const python = pythonBridge();
 
 const randomUUI = (a,b) => {for(b=a='';a++<36;b+=a*51&52?(a^15?8^Math.random()*(a^20?16:4):4).toString(16):'');return b}
 
@@ -43,6 +42,7 @@ class stableDifussionJs {
 			else if (this.apiKey.length === 0) reject('API_KEY not provided');
 			else if (args.outputPath && (args.outputPath === '' || !fs.lstatSync(args.outputPath).isDirectory() )) reject('Please enter a valid outputPath');
 			else {
+				const python = pythonBridge();
 				python.ex`
 import base64
 import io
