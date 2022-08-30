@@ -4,7 +4,6 @@
   "description": "",
   "main": "./src/index.js",
   "scripts": {
-    "install": "npm install && pip -r requirements.txt",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
