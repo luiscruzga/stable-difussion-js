@@ -33,6 +33,7 @@ class stableDifussionJs {
 	 * @param {objet} args
 	 * @param {string} args.search - Text to transform in image
 	 * @param {string} args.outputPath - Path to output image
+	 * @param {boolean} args.isPython3 - Is python 3
 	 * @return {Promise<string>} Image in base64 format
 	 */
 	makeImage(args) {
@@ -42,7 +43,7 @@ class stableDifussionJs {
 			else if (this.apiKey.length === 0) reject('API_KEY not provided');
 			else if (args.outputPath && (args.outputPath === '' || !fs.lstatSync(args.outputPath).isDirectory() )) reject('Please enter a valid outputPath');
 			else {
-				const python = pythonBridge();
+				const python = args.isPython3 ? pythonBridge({python: 'python3'}) : pythonBridge();
 				python.ex`
 import base64
 import io

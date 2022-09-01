@@ -8,10 +8,10 @@ Allows to create images from a given text using the stable-diffusion sdk
 
 ## Pre requirements
 
-You must have python 3 previously installed, once you have python, you must install the stable-diffusion sdk
+You must have python 3 previously installed, once you have python, you must install the stable-diffusion sdk and Pillow
 
 ```bash
-  pip install stability_sdk
+  pip install stability_sdk Pillow
 ```
 
 Additionally, you must have the API_KEY obtained from the [dreamstudio](https://beta.dreamstudio.ai/membership) website
